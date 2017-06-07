@@ -1,14 +1,32 @@
 ---
 # tasks file for mediapeers.instrumental
 
-- name: Add instrumentald repo
-  apt_repository:
-    # FIXME: use string with dynamic ubuntu code name
-    repo: dep https://packagecloud.io/expectedbehavior/instrumental/ubuntu/ trusty main
+- name: Add instrumentald apt repo key
+  apt_key:
+    url: https://packagecloud.io/expectedbehavior/instrumental/gpgkey
     state: present
 
-# TODO:
-# - add repo key
-# - update apt index and install
-# - configure
-# - restart/activate on boot
+- name: Add instrumentald apt repo
+  apt_repository:
+    repo: 'dep https://packagecloud.io/expectedbehavior/instrumental/ubuntu/ {{ ansible_distribution_release }} main'
+    state: present
+- apt_repository:
+    repo: 'dep-src https://packagecloud.io/expectedbehavior/instrumental/ubuntu/ {{ ansible_distribution_release }} main'
+    state: present
+    update_cache: yes
+
+- name: Install instrumentald apt package
+  apt:
+    name: instrumentald
+    state: present
+
+- name: Add config file instrumentald.toml
+  template:
+    src: instrumentald.toml.j2
+    dest: /etc/instrumentald.toml
+  notify: restart instrumentald
+
+- name: Register deamon for startup on boot
+  service:
+    name: instrumentald
+    enabled: yes
