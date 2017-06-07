@@ -1,0 +1,17 @@
+---
+# handlers file for mediapeers.instrumental
+
+name: start instrumentald
+service:
+  name: instrumentald
+  state: started
+
+name: restart instrumentald
+service:
+  name: instrumentald
+  state: restarted
+
+name: stop instrumentald
+service:
+  name: instrumentald
+  state: stop

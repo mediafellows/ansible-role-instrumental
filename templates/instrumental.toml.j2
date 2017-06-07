@@ -1,0 +1,13 @@
+project_token = "{{ instrumental_token }}"
+
+# System Metrics:
+system = {{ instrumental_system_metrics|to_json }}
+
+# Services:
+docker = {{ instrumental_service_docker|to_json }}
+redis = {{ instrumental_service_redis|to_json }}
+memcached = {{ instrumental_service_memcached|to_json }}
+mongodb = {{ instrumental_service_mongodb|to_json }}
+nginx = {{ instrumental_service_nginx|to_json }}
+mysql = {{ instrumental_service_mysql|to_json }}
+postgresql = {{ instrumental_service_postgresql|to_json }}

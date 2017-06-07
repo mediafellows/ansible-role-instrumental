@@ -1,0 +1,23 @@
+---
+# defaults file for mediapeers.instrumental
+
+instrumental_token: 'SET-YOUR-OWN' # required
+
+# list of system metrics to monitor:
+instrumental_system_metrics:
+  - cpu
+  - disk
+  - load
+  - memory
+  - network
+  - swap
+
+# Add monitoring endpoints to any of those list to enable
+# the service metric
+instrumental_service_docker: []
+instrumental_service_redis: []
+instrumental_service_memcached: []
+instrumental_service_mongodb: []
+instrumental_service_nginx: []
+instrumental_service_mysql: []
+instrumental_service_postgresql: []
