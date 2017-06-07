@@ -9,7 +9,7 @@ galaxy_info:
 
   platforms:
   - name: Ubuntu
-     versions:
+    versions:
      - all
   galaxy_tags:
     - monitoring
