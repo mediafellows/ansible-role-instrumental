@@ -46,6 +46,7 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
   # Run serverspec
   - sudo rake spec
+  - cat /etc/instrumentald.toml
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
