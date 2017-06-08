@@ -5,8 +5,12 @@ describe "Instrumentald setup" do
     it { should be_installed }
   end
 
+  describe service('instrumentald') do
+    it { should be_running }
+  end
+
   describe file('/etc/instrumentald.toml') do
-    it { sould be_file }
+    it { should be_file }
 
     its(:content) { should include("project_token = \"#{ANSIBLE_VARS.fetch('instrumental_token', 'FAIL')}\"") }
     its(:content) { should include('system = ["cpu", "disk", "load", "memory", "network", "swap"]') }
