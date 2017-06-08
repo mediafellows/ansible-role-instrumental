@@ -2,5 +2,7 @@
 - hosts: localhost
   remote_user: root
   become: true
+  vars:
+    instrumental_token: token-abc123
   roles:
     - ansible-role-instrumental
