@@ -8,10 +8,10 @@
 
 - name: Add instrumentald apt repo
   apt_repository:
-    repo: 'dep https://packagecloud.io/expectedbehavior/instrumental/ubuntu/ {{ ansible_distribution_release }} main'
+    repo: 'deb https://packagecloud.io/expectedbehavior/instrumental/ubuntu/ {{ ansible_distribution_release }} main'
     state: present
 - apt_repository:
-    repo: 'dep-src https://packagecloud.io/expectedbehavior/instrumental/ubuntu/ {{ ansible_distribution_release }} main'
+    repo: 'deb-src https://packagecloud.io/expectedbehavior/instrumental/ubuntu/ {{ ansible_distribution_release }} main'
     state: present
     update_cache: yes
 
